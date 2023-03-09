@@ -3,7 +3,6 @@ package usecase
 import "github.com/willian2s/calculate-tax/internal/entity"
 
 type OrderInputDTO struct {
-	ID    string
 	Price float64
 	Tax   float64
 }
@@ -20,7 +19,7 @@ type CalculateFinalPrice struct {
 }
 
 func (c *CalculateFinalPrice) Execute(input OrderInputDTO) (*OrderOutputDTO, error) {
-	order, err := entity.NewOrder(input.ID, input.Price, input.Tax)
+	order, err := entity.NewOrder(input.Price, input.Tax)
 	if err != nil {
 		return nil, err
 	}

@@ -1,6 +1,10 @@
 package entity
 
-import "errors"
+import (
+	"errors"
+
+	"github.com/google/uuid"
+)
 
 type Order struct {
 	ID         string
@@ -9,9 +13,9 @@ type Order struct {
 	FinalPrice float64
 }
 
-func NewOrder(id string, price float64, tax float64) (*Order, error) {
+func NewOrder(price float64, tax float64) (*Order, error) {
 	order := &Order{
-		ID:    id,
+		ID:    uuid.New().String(),
 		Price: price,
 		Tax:   tax,
 	}

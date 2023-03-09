@@ -28,5 +28,4 @@ func TestIfAllValidParams(t *testing.T) {
 	assert.Equal(t, 0.5, order.Tax)
 	order.CalculateFinalPrice()
 	assert.Equal(t, 5.5, order.FinalPrice)
-
 }
